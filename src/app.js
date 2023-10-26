@@ -1,11 +1,14 @@
 const express = require("express");
+const cors = require('cors');
 const path = require("path");
 const app = express();
 require("./db/conn");
 const Register = require("./models/stud_registers");
 const port = process.env.PORT || 3000;
 const static_path = path.join(__dirname,"../public");
-
+app.use(cors({
+    origin:"https://suyash9422.github.io/Student-registration.github.io/",
+}))
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
